@@ -25,8 +25,13 @@
 
         public virtual void Withdraw(double amount)
         {
-            throw new NotImplementedException();
+            if (Balance >= amount)
+            Balance = (Balance - amount);
+            else
+            Console.WriteLine("Amount is greater than balance.");
+            Console.WriteLine("Current balance is: $"+Balance);
         }
+      
         public abstract void CalculateInterest();
 
     }
