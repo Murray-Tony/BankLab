@@ -2,10 +2,10 @@
  
  abstract class BankAccount
     {
-        public string AcctNbr { get; set; }
-        public string Name { get; set; }
-        public double Balance { get; set; }
-        public DateTime DateCreated { get; set; }
+        public virtual string AcctNbr { get; set; }
+        public virtual string Name { get; set; }
+        public virtual double Balance { get; set; }
+        public virtual DateTime DateCreated { get; set; }
 
         public BankAccount():this(1000, DateTime.Today, "None", "None")
         {
@@ -35,12 +35,14 @@
 
         public virtual void Deposit(double amount)
         {
+            Console.WriteLine("Now depositing $"+ amount);
             Balance = Balance + amount;
             Console.WriteLine("Updated balance is: $"+ Balance);
         }
 
         public virtual void Withdraw(double amount)
-        {
+        { 
+          Console.WriteLine("Now attempting to withdraw $"+ amount);
             if (Balance >= amount){
               Balance = (Balance-amount);
               Console.WriteLine("$" +amount +" has been withdrawn.");
